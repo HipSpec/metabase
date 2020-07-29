@@ -21,6 +21,16 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+    
+    - name: Demo Docker
+      uses: docker://ruby:2.7
+      with:
+        first_name: Mona
+        middle_name: The
+        last_name: Octocat
+      run: |
+        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME
+        ruby -v > ruby-demo.txt
 
     # Runs a single command using the runners shell
     - name: Scan Code
@@ -31,6 +41,12 @@ jobs:
       with:
         name: report
         path: report.txt
+
+    - name: Save Ruby As Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ruby-demo
+        path: ruby-demo.txt
     # Runs a set of commands using the runners shell
     # - name: Run a multi-line script
     #   run: |
