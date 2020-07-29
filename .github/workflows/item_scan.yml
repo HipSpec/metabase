@@ -64,6 +64,8 @@ jobs:
     - name: HipSpec Hello world action step 4
       id: hello
       uses: HipSpec/hipspec-scan@v1
+      env:
+        HIPSPEC_WEBHOOK: ${{ secrets.HIPSPEC_WEBHOOK }}
       with:
         who-to-greet: 'Gus the Octocat'
     # Use the output from the `hello` step
