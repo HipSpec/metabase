@@ -61,7 +61,7 @@ jobs:
     steps:
     - name: HipSpec Hello world action step 4
       id: hello
-      uses: HipSpec/hipspec-scan@v2
+      uses: HipSpec/hipspec-scan@v1
       with:
         who-to-greet: 'Gus the Octocat'
     # Use the output from the `hello` step
