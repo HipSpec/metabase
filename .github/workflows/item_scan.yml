@@ -21,16 +21,19 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    
-    - name: Demo Docker
-      uses: docker://ruby:2.7
+    - uses: actions/setup-ruby@v1
       with:
-        first_name: Mona
-        middle_name: The
-        last_name: Octocat
-      run: |
-        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME
-        ruby -v > ruby-demo.txt
+        ruby-version: '2.7' # Version range or exact version of a Ruby version to use, using semvers version range syntax.
+    - run: ruby -v
+    # - name: Demo Docker
+    #   uses: docker://ruby:2.7
+    #   with:
+    #     first_name: Mona
+    #     middle_name: The
+    #     last_name: Octocat
+    #   run: |
+    #     echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME
+    #     ruby -v > ruby-demo.txt
 
     # Runs a single command using the runners shell
     - name: Scan Code
@@ -42,13 +45,27 @@ jobs:
         name: report
         path: report.txt
 
-    - name: Save Ruby As Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: ruby-demo
-        path: ruby-demo.txt
+    # - name: Save Ruby As Artifact
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: ruby-demo
+    #     path: ruby-demo.txt
     # Runs a set of commands using the runners shell
     # - name: Run a multi-line script
     #   run: |
     #     echo Add other actions to build,
     #     echo test, and deploy your project.
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+    - name: HipSpec Hello world action step
+      id: hello
+      uses: HipSpec/hipspec-scan@v1
+      with:
+        who-to-greet: 'Gus the Octocat'
+    # Use the output from the `hello` step
+    - name: Get the output time
+      run: echo "The time was ${{ steps.hello.outputs.time }}"     
+        
+  
