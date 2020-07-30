@@ -45,31 +45,21 @@ jobs:
         name: report
         path: report.txt
 
-    # - name: Save Ruby As Artifact
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     name: ruby-demo
-    #     path: ruby-demo.txt
-    # Runs a set of commands using the runners shell
-    # - name: Run a multi-line script
-    #   run: |
-    #     echo Add other actions to build,
-    #     echo test, and deploy your project.
-  hello_world_job:
+  hipspec_scan_job:
     runs-on: ubuntu-latest
     name: A job to Scan Product Features From Repos
     steps:
     - name: Checkout
       uses: actions/checkout@v2
     - name: HipSpec Scan
-      id: hello
-      uses: HipSpec/hipspec-scan@v1
+      id: hipspec-scan
+      uses: HipSpec/hipspec-scan@develop
       env:
         HIPSPEC_WEBHOOK: ${{ secrets.HIPSPEC_WEBHOOK }}
-      with:
-        who-to-greet: 'Gus the Octocat'
+      # with:
+      #   who-to-greet: 'Gus the Octocat'
     # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"     
+    # - name: Get the output time
+    #   run: echo "The time was ${{ steps.hello.outputs.time }}"     
         
   
