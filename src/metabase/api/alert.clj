@@ -192,6 +192,7 @@
       ;; No need to unsubscribe if we're just going to delete the Pulse
       (db/delete! Pulse :id id)
       ;; There are other receipieints, remove current user only
+      ;; HIPSPEC-GZHQERJ
       (pulse/unsubscribe-from-alert! id api/*current-user-id*))
     ;; Send emails letting people know they have been unsubscribe
     (when (email/email-configured?)

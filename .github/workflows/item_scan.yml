@@ -57,11 +57,11 @@ jobs:
     #     echo test, and deploy your project.
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: A job to Scan Product Features From Repos
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: HipSpec Hello world action step 4
+    - name: HipSpec Scan
       id: hello
       uses: HipSpec/hipspec-scan@v1
       env:
