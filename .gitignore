@@ -1,3 +1,4 @@
+*.rb
 *.class
 *.iml
 *.jar
