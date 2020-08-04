@@ -67,6 +67,8 @@
 (def ^:private password-fail-snippet (deferred-tru "did not match stored password"))
 
 (s/defn ^:private ldap-login :- (s/maybe UUID)
+  ;; HIPSPEC-0ZXOVYQ
+  ;; HIPSPEC-8I2UMLY
   "If LDAP is enabled and a matching user exists return a new Session for them, or `nil` if they couldn't be
   authenticated."
   [username password]
@@ -171,6 +173,7 @@
    :ip-address (throttle/make-throttler :email, :attempts-threshold 50)})
 
 (api/defendpoint POST "/forgot_password"
+  ;; HIPSPEC-ZGHOEQW
   "Send a reset email when user has forgotten their password."
   [:as {:keys [server-name] {:keys [email]} :body, :as request}]
   {email su/Email}
@@ -260,6 +263,7 @@
 (def ^:private google-auth-token-info-url "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=%s")
 
 (defn- google-auth-token-info
+  ;; HIPSPEC-FSCXB53
   ([token-info-response]
    (google-auth-token-info token-info-response (google-auth-client-id)))
   ([token-info-response client-id]
@@ -323,6 +327,7 @@
       (mw.session/set-session-cookie request response session-id))))
 
 (api/defendpoint POST "/google_auth"
+  ;; HIPSPEC-FSCXB53
   "Login with Google Auth."
   [:as {{:keys [token]} :body, :as request}]
   {token su/NonBlankString}

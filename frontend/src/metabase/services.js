@@ -117,6 +117,7 @@ export const SlackApi = {
   updateSettings: PUT("/api/slack/settings"),
 };
 
+// HIPSPEC-8I2UMLY
 export const LdapApi = {
   updateSettings: PUT("/api/ldap/settings"),
 };

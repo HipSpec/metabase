@@ -1,3 +1,4 @@
+;; HIPSPEC-8I2UMLY
 (ns metabase.api.ldap
   "/api/ldap endpoints"
   (:require [clojure.set :as set]

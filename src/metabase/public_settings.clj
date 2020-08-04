@@ -270,6 +270,7 @@
   :setter     :none
   :getter     (fn [] (db/exists? 'Database, :is_sample true)))
 
+; HIPSPEC-O0EFWR5
 (defsetting password-complexity
   "Current password complexity requirements"
   :visibility :public

@@ -7,6 +7,7 @@ import SettingsLdapForm from "metabase/admin/settings/components/SettingsLdapFor
 import AuthenticationOption from "metabase/admin/settings/components/widgets/AuthenticationOption";
 import GroupMappingsWidget from "metabase/admin/settings/components/widgets/GroupMappingsWidget";
 
+// HIPSPEC-8I2UMLY
 PLUGIN_ADMIN_SETTINGS_UPDATES.push(
   sections =>
     updateIn(sections, ["authentication", "settings"], settings => [

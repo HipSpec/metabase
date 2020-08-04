@@ -111,6 +111,8 @@ export const updateAlert = alert => {
 export const UNSUBSCRIBE_FROM_ALERT = "metabase/alerts/UNSUBSCRIBE_FROM_ALERT";
 export const UNSUBSCRIBE_FROM_ALERT_CLEANUP =
   "metabase/alerts/UNSUBSCRIBE_FROM_ALERT_CLEANUP";
+
+// HIPSPEC-GZHQERJ
 const unsubscribeFromAlertRequest = new RestfulRequest({
   endpoint: AlertApi.unsubscribe,
   actionPrefix: UNSUBSCRIBE_FROM_ALERT,

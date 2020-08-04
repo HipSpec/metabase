@@ -632,8 +632,9 @@
 
 
 ;;; +----------------------------------------------------------------------------------------------------------------+
-;;; |                                         PUT /api/alert/:id/unsubscribe                                         |
+;;; |                                         PUT /api/alert/:id/unsubscribe  ;;; HIPSPEC-GZHQERJ                    |
 ;;; +----------------------------------------------------------------------------------------------------------------+
+
 
 (defn- alert-unsubscribe-url [alert-or-id]
   (format "alert/%d/unsubscribe" (u/get-id alert-or-id)))
