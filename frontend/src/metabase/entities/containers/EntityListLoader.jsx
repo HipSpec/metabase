@@ -47,6 +47,8 @@ const getEntityQuery = (state, props) =>
 // object is created. This works because entityQuery must be JSON serializable
 // NOTE: Technically leaks a small amount of memory because it uses an unbounded
 // memoization cache, but that's probably ok.
+// HIPSPEC-6KR3TZB
+
 const getMemoizedEntityQuery = createMemoizedSelector(
   [getEntityQuery],
   entityQuery => entityQuery,

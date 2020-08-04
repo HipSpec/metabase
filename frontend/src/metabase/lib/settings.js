@@ -95,7 +95,7 @@ class Settings {
   ssoEnabled() {
     return this.get("google-auth-client-id") != null;
   }
-
+  // HIPSPEC-8I2UMLY
   ldapEnabled() {
     return this.get("ldap-configured?");
   }

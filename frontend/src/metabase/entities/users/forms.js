@@ -29,6 +29,7 @@ const DETAILS_FORM_FIELDS: () => FormFieldDefinition[] = () => [
   },
 ];
 
+// HIPSPEC-KDECLSP
 const LOCALE_FIELD: FormFieldDefinition = {
   name: "locale",
   title: t`Language`,
@@ -42,6 +43,7 @@ const LOCALE_FIELD: FormFieldDefinition = {
   ].map(([code, name]) => ({ name, value: code })),
 };
 
+// HIPSPEC-VB4X2RW
 const PASSWORD_FORM_FIELDS: () => FormFieldDefinition[] = () => [
   {
     name: "password",
